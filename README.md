@@ -72,7 +72,7 @@ This project is build using serverless framework (https://serverless.com)
   * Find out board ID (it is not a slug, see XHR requests when you are visit Trello Board)
   * Define prefix you will use
   
-2. Continue setting up 
+2. Configure Trello
   
   * Enable Card Number powerup in Trello
   * Set __same__ prefix in Card Number powerup settings
@@ -80,6 +80,8 @@ This project is build using serverless framework (https://serverless.com)
 3. Deploy the service
 
   ```bash
+  npm install -g serverless
+  yarn install
   yarn run deploy
   ```
 
@@ -97,7 +99,7 @@ This project is build using serverless framework (https://serverless.com)
     github-webhook-.....github-webhook-listener-dev-githubWebhookListener
   ```
 
-3. Configure your webhook in your github repository settings. [Setting up a Webhook](https://developer.github.com/webhooks/creating/#setting-up-a-webhook)
+4. Configure your webhook in your github repository settings. [Setting up a Webhook](https://developer.github.com/webhooks/creating/#setting-up-a-webhook)
 
   **(1.)** Plugin your API POST endpoint. (`https://abcdefg.execute-api.us-east-1.amazonaws.com/dev/webhook` in this example). Run `sls info` to grab your endpoint if you don't have it handy.
 
@@ -107,7 +109,7 @@ This project is build using serverless framework (https://serverless.com)
 
   ![webhook-steps](https://cloud.githubusercontent.com/assets/532272/21461773/db7cecd2-c922-11e6-9362-6bbf4661fe14.jpg)
 
-4. Watch for logs 
+5. Watch for logs 
 
   You can tail the logs of the lambda function with the below command to see it running.
   
