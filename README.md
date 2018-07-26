@@ -64,15 +64,23 @@ This project is build using serverless framework (https://serverless.com)
 
 ## Setup
 
-1. Copy file deploy-env-template to deploy-env and populate following
+1. Copy file deploy-env-template to deploy-env and populate it with following values:
 
-1.1. Generate WebHook secret (for example using pwgen 16)
-1.1. 
+  * Generate WebHook secret (for example using pwgen 16)
+  * Obtain Trello key
+  * Obtain Trello token (personal)
+  * Find out board ID (it is not a slug, see XHR requests when you are visit Trello Board)
+  * Define prefix you will use
+  
+2. Continue setting up 
+  
+  * Enable Card Number powerup in Trello
+  * Set __same__ prefix in Card Number powerup settings
 
-2. Deploy the service
+3. Deploy the service
 
-  ```yaml
-  serverless deploy
+  ```bash
+  yarn run deploy
   ```
 
   After the deploy has finished you should see something like:
@@ -95,20 +103,18 @@ This project is build using serverless framework (https://serverless.com)
 
   **(2.)** Plugin your secret from `GITHUB_WEBHOOK_SECRET` environment variable
 
-  **(3.)** Choose the types of events you want the github webhook to fire on
+  **(3.)** Choose the Push event for the github webhook to listen to
 
   ![webhook-steps](https://cloud.githubusercontent.com/assets/532272/21461773/db7cecd2-c922-11e6-9362-6bbf4661fe14.jpg)
 
-
-4. Manually trigger/test the webhook from settings or do something in your github repo to trigger a webhook.
+4. Watch for logs 
 
   You can tail the logs of the lambda function with the below command to see it running.
+  
   ```bash
-  serverless logs -f githubWebhookListener -t
+  yarn run logs
   ```
 
   You should see the event from github in the lambda functions logs.
 
-5. Use your imagination and do whatever you want with your new github webhook listener! 🎉
-
-Let us know if you come up with a cool use case for this service =)
+5. Start developing, mentioning trello cards and will automagically appear on comments in cards.
