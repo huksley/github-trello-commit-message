@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs8.10
   region: eu-west-1
-  stage: dev
+  stage: ${env:SERVERLESS_STAGE, 'dev'}
   # optional, in MB, default is 1024
   memorySize: 128
   # optional, in seconds, default is 6
